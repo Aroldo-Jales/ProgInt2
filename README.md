@@ -4,7 +4,7 @@
 - [Requisitos](#requistos)
 - [Como executar o projeto](#como-executar-o-projeto)
 
--[Estutura do projeto](#estrutura-do-projeto)
+    -[Estutura do projeto](#estrutura-do-projeto)
     - [Auth](#auth)
         - [SignUp](#Signup)
             - [SignUp Request](#Signup-request)
