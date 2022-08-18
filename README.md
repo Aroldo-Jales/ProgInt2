@@ -3,6 +3,8 @@
 - [Rest API (ASP.NET 6)](#rest-api)
 - [Requisitos](#requistos)
 - [Como executar o projeto](#como-executar-o-projeto)
+
+-[Estutura do projeto](#estrutura-do-projeto)
     - [Auth](#auth)
         - [SignUp](#Signup)
             - [SignUp Request](#Signup-request)
@@ -18,6 +20,8 @@
     
 - Entrar no diretório do projeto e executar o comando ```> dotnet run --project .\ProgInt2.Api\```
     
+## Estrutura do projeto
+
 ## Auth
 
 ### SignUp
