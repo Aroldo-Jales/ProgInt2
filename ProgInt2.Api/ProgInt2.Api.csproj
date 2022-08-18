@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>  
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProgInt2.Contracts\ProgInt2.Contracts.csproj" />
+    <ProjectReference Include="..\ProgInt2.Aplication\ProgInt2.Aplication.csproj" />
+    <ProjectReference Include="..\ProgInt2.Infrastructure\ProgInt2.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
