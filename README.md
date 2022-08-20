@@ -13,9 +13,9 @@
             - [SignIn Response](#Signin-response)
 
 ## Tasks
-[x] JWT Token
-[ ] Persistência
-[ ] Middlewares
+- [x] (JWT Token)
+- [ ] (Persistência)
+- [ ] (Middlewares)
 
 ## Requisitos
     
