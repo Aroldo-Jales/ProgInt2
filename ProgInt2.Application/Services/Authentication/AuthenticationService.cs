@@ -1,4 +1,4 @@
-namespace ProgInt2.Aplication.Services.Authentication;
+namespace ProgInt2.Application.Services.Authentication;
 
 public class AuthenticationService : IAuthenticationService
 {    

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ProgInt2.Contracts.Authentication;
-using ProgInt2.Aplication.Services.Authentication;
+using ProgInt2.Application.Services.Authentication;
 namespace ProgInt2.Api.Controllers;
 
 [ApiController]

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgInt2.Api", "ProgInt2.Api\ProgInt2.Api.csproj", "{61020AFF-DAE3-4836-BA7A-05C2A3E15A43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgInt2.Aplication", "ProgInt2.Aplication\ProgInt2.Aplication.csproj", "{7BFF959D-82BD-43A2-A134-FA469320A36A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgInt2.Application", "ProgInt2.Application\ProgInt2.Application.csproj", "{7BFF959D-82BD-43A2-A134-FA469320A36A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgInt2.Contracts", "ProgInt2.Contracts\ProgInt2.Contracts.csproj", "{FE087038-0351-447B-90AA-E3C70314F0BA}"
 EndProject

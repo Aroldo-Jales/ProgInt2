@@ -1,4 +1,4 @@
-using ProgInt2.Aplication.Services.Authentication;
+using ProgInt2.Application.Services.Authentication;
 using ProgInt2.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
