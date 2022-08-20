@@ -1,9 +1,18 @@
+using ProgInt2.Application.Common.Interfaces.Authentication;
+
 namespace ProgInt2.Application.Services.Authentication;
 
 public class AuthenticationService : IAuthenticationService
-{    
-    public AuthenticationResult SignIn(string email, string password)
+{   
+    private readonly IJwtTokenGenerator _jwtTokenGenerator; 
+
+    public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator)
     {
+        _jwtTokenGenerator = jwtTokenGenerator;
+    }
+
+    public AuthenticationResult SignIn(string email, string password)
+    {               
         return new AuthenticationResult(
             Guid.NewGuid(), 
             "firstName",
@@ -12,14 +21,18 @@ public class AuthenticationService : IAuthenticationService
             "token"
         );
     }
+
     public AuthenticationResult SignUp(string firstName, string lastName, string email, string password)
-    {
+    {        
+        Guid id = Guid.NewGuid();
+        var token = _jwtTokenGenerator.GenerateToken(id, firstName, lastName); 
+
         return new AuthenticationResult(
-            Guid.NewGuid(), 
+            id, 
             firstName, 
             lastName, 
             email,             
-            "token"
+            token
         );
     }
 }
