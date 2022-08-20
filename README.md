@@ -11,6 +11,12 @@
         - [SignIn](#Signin)
             - [SignIn Request](#Signin-request)
             - [SignIn Response](#Signin-response)
+
+## Tasks
+[x] JWT Token
+[ ] Persistência
+[ ] Middlewares
+
 ## Requisitos
     
 - .NET 6.0 SDK
