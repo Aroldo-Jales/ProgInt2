@@ -1,13 +1,25 @@
 # Programação para Internet 2
 
-- [Rest API (ASP.NET 6)](#rest-api)
-    - [Auth](#auth)
++ [Rest API (ASP.NET 6)](#rest-api)
++ [Requisitos](#requistos)
++ [Como executar o projeto](#como-executar-o-projeto)
++ [Estutura do projeto](#estrutura-do-projeto)
+    + [Auth](#auth)
         - [SignUp](#Signup)
             - [SignUp Request](#Signup-request)
             - [SignUp Response](#Signup-response)
         - [SignIn](#Signin)
             - [SignIn Request](#Signin-request)
             - [SignIn Response](#Signin-response)
+## Requisitos
+    
+- .NET 6.0 SDK
+
+## Como executar o projeto
+    
+- Entrar no diretório do projeto e executar o comando ```> dotnet run --project .\ProgInt2.Api\```
+    
+## Estrutura do projeto
 
 ## Auth
 
