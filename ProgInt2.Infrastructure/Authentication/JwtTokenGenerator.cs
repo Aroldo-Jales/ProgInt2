@@ -20,9 +20,6 @@ namespace ProgInt2.Infrastructure.Authentication
         }
         public string GenerateToken(Guid id, string firstName, string lastName)
         {
-            //
-            // temporary implementation
-            //
 
             var signingCredentials = new Microsoft.IdentityModel.Tokens.SigningCredentials(
                 new SymmetricSecurityKey(
@@ -47,7 +44,7 @@ namespace ProgInt2.Infrastructure.Authentication
             );
 
             return new JwtSecurityTokenHandler().WriteToken(securityToken);
-            
+
         }
     }
 }
