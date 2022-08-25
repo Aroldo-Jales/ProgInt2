@@ -5,7 +5,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using ProgInt2.Application.Common.Interfaces.Authentication;
 using ProgInt2.Application.Common.Interfaces.Services;
-
+using ProgInt2.Domain.Entities;
 namespace ProgInt2.Infrastructure.Authentication
 {
     public class JwtTokenGenerator : IJwtTokenGenerator
@@ -18,7 +18,7 @@ namespace ProgInt2.Infrastructure.Authentication
             _jwtSettings = jwtSettings.Value;
             _datetimeprovider = datetimeprovider;            
         }
-        public string GenerateToken(Guid id, string firstName, string lastName)
+        public string GenerateToken(User user)
         {
             //
             // temporary implementation
@@ -32,9 +32,9 @@ namespace ProgInt2.Infrastructure.Authentication
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, firstName + " " + lastName),                
-                new Claim(JwtRegisteredClaimNames.GivenName, firstName),                
-                new Claim(JwtRegisteredClaimNames.FamilyName, lastName),  
+                new Claim(JwtRegisteredClaimNames.Sub, user.FirstName + " " + user.LastName),                
+                new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),                
+                new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),  
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
