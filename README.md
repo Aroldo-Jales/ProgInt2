@@ -5,18 +5,12 @@
 + [Como executar o projeto](#como-executar-o-projeto)
 + [Estutura do projeto](#estrutura-do-projeto)
     + [Auth](#auth)
-        - [SignUp](#Signup)
-            - [SignUp Request](#Signup-request)
-            - [SignUp Response](#Signup-response)
-        - [SignIn](#Signin)
-            - [SignIn Request](#Signin-request)
-            - [SignIn Response](#Signin-response)
-
-## Tasks
-- [x] JWT Token
-- [ ] Persistência
-- [ ] Middlewares
-
+        - [SignUp](#signup)
+            - [SignUp Request](#signup-request)
+            - [SignUp Response](#signup-response)
+        - [SignIn](#signin)
+            - [SignIn Request](#signin-request)
+            - [SignIn Response](#signin-response)
 ## Requisitos
     
 - .NET 6.0 SDK
