@@ -4,7 +4,9 @@ namespace ProgInt2.Application.Common.Interfaces.Persistence
 {
     public interface IUserRepository
     {
-        User? GetUserByEmail(string email);
         Task Add(User user);
+        Task Update(User user);
+        User? GetUserByEmail(string email);
+        User? GetUserById(Guid id);
     }
 }

@@ -1,3 +1,4 @@
+using ProgInt2.Application.Helper.Authentication;
 using ProgInt2.Application.Common.Interfaces.Authentication;
 using ProgInt2.Application.Common.Interfaces.Persistence;
 using ProgInt2.Domain.Entities;
@@ -18,46 +19,72 @@ public class AuthenticationService : IAuthenticationService
     {            
         // Change implementation to uses hash email+password in database
 
-        if(_userRepository.GetUserByEmail(email) is not User user)
+        if(_userRepository.GetUserByEmail(email) is User user && user.Password == password)
         {
-            throw new Exception("");
-        }
+            var token = _jwtTokenGenerator.GenerateToken(user);
 
-        if(user.Password != password)
+            return new AuthenticationResult(
+                user,          
+                token
+            );
+        }
+        else
         {
             throw new Exception("Invalid credentials");
         }
-
-        var token = _jwtTokenGenerator.GenerateToken(user);
-
-        return new AuthenticationResult(
-            user,          
-            token
-        );
     }
 
     public AuthenticationResult SignUp(string firstName, string lastName, string email, string password)
     {   
-        if(_userRepository.GetUserByEmail(email) != null)
+        if(_userRepository.GetUserByEmail(email) is not User)
         {
             throw new Exception("User already exists.");
         }
+        else
+        {
+            var user = new User
+            (
+                firstName, 
+                lastName, 
+                email, 
+                password
+            );
+            
+            _userRepository.Add(user);
 
-        var user = new User
-        (
-            firstName, 
-            lastName, 
-            email, 
-            password
-        );
-        
-        _userRepository.Add(user);
+            var token = _jwtTokenGenerator.GenerateToken(user); 
 
-        var token = _jwtTokenGenerator.GenerateToken(user); 
+            return new AuthenticationResult(
+                user,             
+                token
+            );
+        }        
+    }
 
-        return new AuthenticationResult(
-            user,             
-            token
-        );        
+    public AuthenticationResult ChangePassword(Guid id, string password)
+    {
+        if(_userRepository.GetUserById(id) is User user)
+        {
+            if(!Validation.IsValidPassword(password))
+            {
+                var token = _jwtTokenGenerator.GenerateToken(user);
+
+                user.Password = password;
+                _userRepository.Update(user);
+
+                return new AuthenticationResult(
+                    user,             
+                    token
+                );
+            }
+            else
+            {
+                throw new Exception("Invalid password.");    
+            }
+        }
+        else
+        {
+            throw new Exception("User not found.");
+        }
     }
 }

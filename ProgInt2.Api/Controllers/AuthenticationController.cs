@@ -56,4 +56,24 @@ public class AuthenticationController : ControllerBase
         return Ok(response);
     }
 
+    [HttpPost("change-password")]
+    public IActionResult ChangePassword(ChangePasswordRequest request)
+    {
+         var authResult = _authenticationService.ChangePassword(            
+            Guid.Parse(request.Id),
+            request.NewPassword
+        );    
+
+        var response = new AuthenticationResponse
+        (
+            authResult.user.Id,
+            authResult.user.FirstName,
+            authResult.user.LastName,
+            authResult.user.Email,
+            authResult.Token
+        );
+
+        return Ok(response);
+    }
+
 }

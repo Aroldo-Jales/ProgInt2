@@ -4,4 +4,5 @@ public interface IAuthenticationService
 {
     AuthenticationResult SignIn(string email, string password);
     AuthenticationResult SignUp(string firstName, string lastName, string email, string password);
+    AuthenticationResult ChangePassword(Guid id, string password);
 }

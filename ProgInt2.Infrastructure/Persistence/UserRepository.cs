@@ -19,9 +19,21 @@ namespace ProgInt2.Infrastructure.Persistence
             await _dbcontext.SaveChangesAsync();       
         }
 
+        public async Task Update(User user)
+        {
+            User updateUser = _dbcontext.Users!.SingleOrDefault(u => u == user)!;
+            updateUser.Password = user.Password;
+            await _dbcontext.SaveChangesAsync();
+        }
+
         public User? GetUserByEmail(string email)
         {
-            return null;
+            return _dbcontext.Users!.SingleOrDefault(user => user.Email == email);
+        }
+
+        public User? GetUserById(Guid id)
+        {
+            return _dbcontext.Users!.SingleOrDefault(user => user.Id == id);
         }
     }
 }

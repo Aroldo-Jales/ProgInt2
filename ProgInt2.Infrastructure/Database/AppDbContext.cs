@@ -22,7 +22,7 @@ namespace ProgInt2.Infrastructure.Database
             // ALTER DATASOURCE TO READ DATABASE PATH IN EXECUTION
             // AND MOVE DATABASE TO DATABASE FOLDER
 
-            optionsBuilder.UseSqlite(connectionString: @"DataSource=C:\Users\Aroldo Jales\Documents\Code\Vscode\IFPI\PROGINT2\ProgInt2\ProgInt2.Infrastructure\SQLiteDatabase.db; Cache=Shared");
+            optionsBuilder.UseSqlite(connectionString: @"DataSource=C:\Users\pc - 02\Documents\Code\PROGINT2\ProgInt2\ProgInt2.Infrastructure\SQLiteDatabase.db; Cache=Shared");
         }
     }
 }
