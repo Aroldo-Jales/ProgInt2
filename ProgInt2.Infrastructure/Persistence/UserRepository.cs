@@ -14,16 +14,9 @@ namespace ProgInt2.Infrastructure.Persistence
         }
 
         public async Task Add(User user)
-        {
-            try
-            {
-                await _dbcontext.Users.AddAsync(user);
-                await _dbcontext.SaveChangesAsync();
-            }
-            catch(Exception ex)
-            {
-
-            }            
+        {            
+            await _dbcontext.Users!.AddAsync(user);
+            await _dbcontext.SaveChangesAsync();       
         }
 
         public User? GetUserByEmail(string email)
