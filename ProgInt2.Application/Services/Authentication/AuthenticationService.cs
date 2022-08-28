@@ -1,4 +1,4 @@
-using ProgInt2.Application.Helper.Authentication;
+using ProgInt2.Application.Helpers.Authentication;
 using ProgInt2.Application.Common.Interfaces.Authentication;
 using ProgInt2.Application.Common.Interfaces.Persistence;
 using ProgInt2.Domain.Entities;
@@ -36,7 +36,7 @@ public class AuthenticationService : IAuthenticationService
 
     public AuthenticationResult SignUp(string firstName, string lastName, string email, string password)
     {   
-        if(_userRepository.GetUserByEmail(email) is not User)
+        if(_userRepository.GetUserByEmail(email) is User)
         {
             throw new Exception("User already exists.");
         }
