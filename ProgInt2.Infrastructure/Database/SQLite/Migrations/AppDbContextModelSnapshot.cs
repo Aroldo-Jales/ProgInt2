@@ -7,7 +7,7 @@ using ProgInt2.Infrastructure.Database;
 
 #nullable disable
 
-namespace ProgInt2.Infrastructure.Migrations
+namespace ProgInt2.Infrastructure.DataBase.SQLite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot

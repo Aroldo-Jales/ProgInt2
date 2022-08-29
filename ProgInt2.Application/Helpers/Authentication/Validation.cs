@@ -1,7 +1,6 @@
-using System;
 using System.Text.RegularExpressions;
 
-namespace ProgInt2.Application.Helper.Authentication
+namespace ProgInt2.Application.Helpers.Authentication
 {
     public static class Validation
     {

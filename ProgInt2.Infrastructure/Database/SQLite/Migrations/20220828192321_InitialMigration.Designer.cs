@@ -8,11 +8,11 @@ using ProgInt2.Infrastructure.Database;
 
 #nullable disable
 
-namespace ProgInt2.Infrastructure.Migrations
+namespace ProgInt2.Infrastructure.DataBase.SQLite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220825080931_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20220828192321_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
