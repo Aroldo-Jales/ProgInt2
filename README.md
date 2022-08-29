@@ -11,15 +11,19 @@
         - [SignIn](#signin)
             - [SignIn Request](#signin-request)
             - [SignIn Response](#signin-response)
-## Requisitos
+# Requisitos
     
-- .NET 6.0 SDK
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/en-us/download)
 
-## Como executar o projeto
+# Como executar o projeto
     
-- Entrar no diretório do projeto e executar o comando ```> dotnet run --project .\ProgInt2.Api\```
-    
-## Estrutura do projeto
+- Entrar no diretório do projeto e executar o comando:``` > dotnet run --project .\ProgInt2.Api\```
+
+<br>
+
+# Estrutura do projeto
+
+<br>
 
 ## Auth
 
