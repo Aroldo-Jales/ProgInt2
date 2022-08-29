@@ -29,10 +29,11 @@ public class ErrorHandlingMiddleware
         var code = HttpStatusCode.InternalServerError;
         
         var result = JsonSerializer.Serialize(new { 
-                Title = "An error occurred.",                                                                
-                Type = "Internal server error.",
-                Detail = exception.Message,
-                Status = (int) code
+                title = "An error occurred.",                                                                
+                type = "Internal server error.",
+                detail = exception.Message,                
+                status = (int) code,
+                traceId= context.TraceIdentifier
         });
         
         context.Response.ContentType = "application/json";
