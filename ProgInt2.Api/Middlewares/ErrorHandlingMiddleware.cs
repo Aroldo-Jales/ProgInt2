@@ -1,5 +1,6 @@
 using System.Net;
 using System.Text.Json;
+using ProgInt2.Application.Common.Errors.Authentication;
 
 namespace ProgInt2.Api.Middlewares;
 
@@ -20,19 +21,19 @@ public class ErrorHandlingMiddleware
         }
         catch (Exception ex)
         {
-            await HandleExceptionAsync(context, ex);
+            await HandleExceptionAsync(context, (IServiceException) ex);
         }
     }
 
-    private static Task HandleExceptionAsync(HttpContext context, Exception exception)
+    private static Task HandleExceptionAsync(HttpContext context, IServiceException exception)
     {
-        var code = HttpStatusCode.InternalServerError;
+        var code = exception.StatusCode;
         
         var result = JsonSerializer.Serialize(new { 
                 title = "An error occurred.",                                                                
-                type = "Internal server error.",
-                detail = exception.Message,                
-                status = (int) code,
+                type = exception.GetType().Name,
+                detail = exception.ErrorMessage,                
+                status = exception.StatusCode,
                 traceId= context.TraceIdentifier
         });
         

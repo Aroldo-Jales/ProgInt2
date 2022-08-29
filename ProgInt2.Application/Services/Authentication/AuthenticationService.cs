@@ -2,6 +2,7 @@ using ProgInt2.Application.Helpers.Authentication;
 using ProgInt2.Application.Common.Interfaces.Authentication;
 using ProgInt2.Application.Common.Interfaces.Persistence;
 using ProgInt2.Domain.Entities;
+using ProgInt2.Application.Common.Errors.Authentication;
 
 namespace ProgInt2.Application.Services.Authentication;
 
@@ -59,12 +60,12 @@ public class AuthenticationService : IAuthenticationService
             }   
             else
             {
-                throw new Exception("Invalid email.");
+                throw new InvalidEmailException();
             }    
         }
         else
         {
-            throw new Exception("User already exists.");        
+            throw new DuplicateEmailException();  
         }        
     }
 
@@ -88,12 +89,12 @@ public class AuthenticationService : IAuthenticationService
             }
             else
             {
-                throw new Exception("Invalid password.");    
+                throw new InvalidPasswordException();    
             }
         }
         else
         {
-            throw new Exception("User not found.");
+            throw new UserNotFoundException();
         }
     }
 }
