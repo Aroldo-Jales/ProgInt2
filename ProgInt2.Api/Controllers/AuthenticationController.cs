@@ -1,13 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using ProgInt2.Contracts.Authentication;
 using ProgInt2.Application.Services.Authentication;
+
 namespace ProgInt2.Api.Controllers;
 
 [ApiController]
 [Route("auth")]
 public class AuthenticationController : ControllerBase
 {    
+
     private readonly IAuthenticationService _authenticationService;
+
     
     public AuthenticationController(IAuthenticationService authenticationService)
     {
@@ -39,7 +42,7 @@ public class AuthenticationController : ControllerBase
     [HttpPost("signin")]   
     public IActionResult SignIn(SignInRequest request)
     {
-         var authResult = _authenticationService.SignIn(            
+        var authResult = _authenticationService.SignIn(            
             request.Email,
             request.Password
         );
@@ -72,8 +75,6 @@ public class AuthenticationController : ControllerBase
             authResult.user.Email,
             authResult.Token
         );
-
         return Ok(response);
     }
-
 }
