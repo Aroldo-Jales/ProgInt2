@@ -36,28 +36,35 @@ public class AuthenticationService : IAuthenticationService
 
     public AuthenticationResult SignUp(string firstName, string lastName, string email, string password)
     {   
-        if(_userRepository.GetUserByEmail(email) is User)
+        if(_userRepository.GetUserByEmail(email) is not User)
         {
-            throw new Exception("User already exists.");
+            if(Validation.IsValidEmail(email))
+            {
+                var user = new User
+                (
+                    firstName, 
+                    lastName, 
+                    email, 
+                    password
+                );
+                
+                _userRepository.Add(user);
+
+                var token = _jwtTokenGenerator.GenerateToken(user); 
+
+                return new AuthenticationResult(
+                    user,             
+                    token
+                );
+            }   
+            else
+            {
+                throw new Exception("Invalid email.");
+            }    
         }
         else
         {
-            var user = new User
-            (
-                firstName, 
-                lastName, 
-                email, 
-                password
-            );
-            
-            _userRepository.Add(user);
-
-            var token = _jwtTokenGenerator.GenerateToken(user); 
-
-            return new AuthenticationResult(
-                user,             
-                token
-            );
+            throw new Exception("User already exists.");        
         }        
     }
 
@@ -65,12 +72,14 @@ public class AuthenticationService : IAuthenticationService
     {
         if(_userRepository.GetUserById(id) is User user)
         {
-            if(!Validation.IsValidPassword(password))
-            {
-                var token = _jwtTokenGenerator.GenerateToken(user);
+            if(Validation.IsValidPassword(password))
+            {                    
 
                 user.Password = password;
+
                 _userRepository.Update(user);
+
+                var token = _jwtTokenGenerator.GenerateToken(user);
 
                 return new AuthenticationResult(
                     user,             
